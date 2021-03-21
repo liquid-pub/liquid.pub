@@ -14,7 +14,13 @@
       import './js/dior.js'
       import Navbar from './components/Navbar.js'
 
-      console.log(Object.entries(di.data))
+
+      var assets = Object.entries(di.data)
+      
+      assets = assets.reverse()
+
+      console.log(assets)
+
 
       render(
         html`
@@ -25,11 +31,11 @@
             <tr>
               <th>Name</th>
               <th>Ticker</th>
-              <th>Issuer Domain</th>
+              <th>Domain</th>
               <th>Tx</th>
               <th>JSON</th>
             </tr>
-            ${Object.entries(di.data).map((i, j) => {return html`<tr>
+            ${assets.map((i, j) => {return html`<tr>
               <td><a title="${i[0]}" target="_blank" href="https://blockstream.info/liquid/asset/${i[0]}">${i[1].name}</a></td>
 
               <td>${i[1].ticker}</td>
