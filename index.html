@@ -32,8 +32,9 @@
               <th>Name</th>
               <th>Ticker</th>
               <th>Domain</th>
-              <th>Tx</th>
               <th>JSON</th>
+              <th>Tx</th>
+              <th>Proof</th>
             </tr>
             ${assets.map((i, j) => {return html`<tr>
               <td><a title="${i[0]}" target="_blank" href="https://blockstream.info/liquid/asset/${i[0]}">${i[1].name}</a></td>
@@ -42,9 +43,12 @@
 
               <td><a title="${i[0]}" target="_blank" href="https://${i[1].entity.domain}">${i[1].entity.domain}</a></td>
 
+              <td><a title="${i[0]}" target="_blank" href=".well-known/liquid/asset/${i[0]}.json">JSON</a></td>
+
               <td><a title="${i[0]}" target="_blank" href="https://blockstream.info/liquid/tx/${i[1].issuance_txin.txid}?expand">➦</a></td>
 
-              <td><a title="${i[0]}" target="_blank" href=".well-known/liquid/asset/${i[0]}.json">JSON</a></td>
+              <td><a title="${i[0]}" target="_blank" href="https://${i[1].entity.domain}/.well-known/liquid-asset-proof-${i[0]}">➦</a></td>
+
 
               </tr>`} 
           )}
